@@ -1,0 +1,12 @@
+Action1	选择任意一张图片，对其进行灰度化，然后使用SVD进行图像的重构，当奇异值数量为原有的1%，10%，50%时，输出重构后的图像。1、完成代码，结果正确（10points）
+	
+
+Action2	使用Google Colab编辑器，对MovieLens数据集进行评分预测，计算RMSE（使用funkSVD, BiasSVD，SVD++）。1、使用Colab完成3种算法在MovieLens的评分预测（20points）
+2、使用Surprise以外的工具(+5points)
+
+
+Action3	"使用Gensim中的Word2Vec对三国演义进行Word Embedding，分析和曹操最相近的词有哪些，曹操+刘备-张飞=?
+数据集：three_kingdoms.txt。1、完成代码，结果正确（20points）	
+
+
+

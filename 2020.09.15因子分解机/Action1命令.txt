@@ -1,0 +1,1 @@
+libFM -task r -train ratings.dat.libfm -test ratings.dat.libfm -dim '1,1,8' -method sgd -learn_rate 0.01 -out myout.txt

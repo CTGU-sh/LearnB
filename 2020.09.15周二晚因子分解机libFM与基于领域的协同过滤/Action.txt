@@ -1,0 +1,10 @@
+Action1	使用libfm工具对movielens进行评分预测，采用SGD优化算法			1、运行出结果，结果正确（10points）
+
+	
+Action2	使用DeepFM对movielens进行评分预测			1、使用DeepFM工具进行评分预测，代码正确，可以跑通简单的movielens_sample数据集（10points）
+2、可以跑通完整的movielens数据集（10points）
+	
+
+
+Action3	使用基于邻域的协同过滤（KNNBasic, KNNWithMeans, KNNWithZScore, KNNBaseline中的任意一种）对MovieLens数据集进行协同过滤，采用k折交叉验证(k=3)，输出每次计算的RMSE, MAE			1、完成代码（10points）
+2、得出K折，每次的RMSE，MAE结果（10points）	

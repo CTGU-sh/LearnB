@@ -1,0 +1,34 @@
+Thinking1	在实际工作中，FM和MF哪个应用的更多，为什么。1、能简要说明FM和MF的区别（5point）
+2、能简要说明FM在推荐系统，以及应用场景中的作用（5point）
+
+
+	
+Thinking2	FFM与FM有哪些区别？1、能简要说明区别（10point）	
+
+
+Thinking3	DeepFM相比于FM解决了哪些问题，原理是怎样的？1、能说明DeepFM相比于FM有哪些改进的地方（5points）
+2、能说明DeepFM的原理，FM+DNN模型（5points）	
+
+
+Thinking4	Surprise工具中的baseline算法原理是怎样的？BaselineOnly和KNNBaseline有什么区别？1、能简要说明baseline的原理（5points)
+2、能简要说明BaselineOnly和NBaseline的区别（5points)
+
+
+Thinking5	基于邻域的协同过滤都有哪些算法，请简述原理。1、能说出两种不同的基于邻域的协同过滤的算法（5points）
+2、这些算法之间的区别和作用（5pionts）	
+
+
+Thinking1	实际生活中FM应用的更多，因为考虑了更多的辅助信息；而MF只适用于评分预测，进行简单的特征计算
+
+				
+Thinking2	FFM在FM的基础上加入了场filed的概念 把相同性质的特征归于同一个field  FM每个特征有唯一的一个隐向量 FFM中每个特征会有几个不同的隐向量 ，fj是第j个特征所属的field	
+
+			
+Thinking3	FM由于计算量的原因，一般只考虑2阶特征组合   DeepFM既考虑低阶 又考虑到高阶特征    对于低阶特征 用因子分解机FM提取特征  对于高阶 用神经网络DNN提取特征
+	
+
+			
+Thinking4	Baseline原理：用户u对物品i的真实投票分数我们记为rui，基线(baseline)模型预估分数为bui u为所有已知投票数据中投票的均值，bu为用户的打分相对于平均值的偏差（如果某用户比较苛刻，打分都相对偏低， 则bu会为负值；相反，如果某用户经常对很多片都打正分， 则bu为正值）； bi为该item被打分时，相对于平均值得偏差，可反映电影受欢迎程度。 bui则为基线模型对用户u给物品i打分的预估值。(Baseline和KNNBaseline的公式见附图)
+
+					
+Thinking5	UserCF:给用户推荐和他相似的其他用户喜欢的物品;UserCF:给用户推荐和他相似的其他用户喜欢的物品				

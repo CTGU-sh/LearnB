@@ -1,0 +1,2 @@
+Action1	使用Wide&Deep模型对movielens进行评分预测	1、完成代码（20points）
+2、使用Wide&Deep工具进行评分预测，代码正确（20points）

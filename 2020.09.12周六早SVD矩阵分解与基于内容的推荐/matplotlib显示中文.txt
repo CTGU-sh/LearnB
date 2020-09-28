@@ -1,0 +1,18 @@
+#matplotlib无法显示中文
+import matplotlib as mpl
+mpl.rcParams['font.sans-serif'] = ['KaiTi']
+mpl.rcParams['font.serif'] = ['KaiTi']
+mpl.rcParams['font.size'] =8
+#这句话解决坐标轴负号乱码
+plt.rcParams['axes.unicode_minus'] = False
+
+
+#pycharm里面输出内容显示不全省略号问题
+import pandas as pd
+
+pd.set_option('display.max_rows', 10000)
+pd.set_option('display.max_columns', 10000)
+pd.set_option('display.width', 10000)
+
+
+

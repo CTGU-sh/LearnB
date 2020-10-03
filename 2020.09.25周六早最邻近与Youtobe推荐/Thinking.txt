@@ -1,0 +1,31 @@
+Thinking1	什么是近似最近邻查找，常用的方法有哪些			能简要说明近似最近邻查找（5point）
+常用的方法（5point）
+
+
+Thinking2	为什么两个集合的minhash值相同的概率等于这两个集合的Jaccard相似度			能简要说明MinHash值相同的概率与Jaccard相似度相等的证明（10point）
+
+
+
+
+Thinking3	SimHash在计算文档相似度的作用是怎样的？			1、文档SimHash的计算过程（5points）
+2、如何通过文档的SimHash计算文档之间的相似度（5points）
+
+
+Thinking4	为什么YouTube采用期望观看时间作为评估指标			能简要说明原因（10points）
+
+
+Thinking1	答：Approximate Nearest Neighbor，近似最近邻检索，是指在牺牲可接受范围内的精度的情况下提高检索效率；常用的方法有：随机投影森林法、KD-tree法、基于哈希的近似最近邻搜索的方法、基于量化的近似最近邻搜索方法（乘积量化、合成量化、加和量化）等；局部敏感哈希(LSH)。
+
+Thinking2	答：同一行的两个元素的情况有三种：X.两者都为1；Y.一个1一个0；Z.两者都为0；Jaccard相似度为|X|/(|X|+|Y|)。排列是等概率的，则第一个出现的X中元素出现在Y中元素之前的概率也为|X|/(|X|+|Y|)，这种情况下两集合的minhash值相同。
+
+Thinking3	答：Step1，设置SimHash的位数，比如32位，需要综合考虑存储成本以及数据集的大小
+		    Step2，初始化SimHash，将各位初始化为0 
+		    Step3，提取文本中的特征，比如采用2-Shingles
+		    Step4，使用传统的hash函数计算各个word的hashcode
+		    Step5，对各word的hashcode的每一位，如果该位为1，则simhash相应位的值加它的权重（通常是出现的频率）；否则减它的权重 
+		    Step6，计算最后得到的32位的SimHash，如果该位大于0，则设为1；否则设为0 ；
+		    通过SimHash算法得到每篇文档的指纹（fingerprint）、计算两个文档指纹的海明距离、通常2篇文档的Hamming距离在3以内，就认为相似度比较高 => 两篇文档基本相同。
+
+
+
+Thinking4	答：因为观看时长不是只有0，1两种标签，所以采用Weighted Logistic Regression来模拟这个输出，在划分样本空间时，正样本为有点击视频，权重为观看时长；负样本为无点击视频，权重统一采用1，使用交叉熵损失函数进行训练完成后，在serving阶段，最后DNN网络将输出 e^(WX+b) 描述,其即为odd,可以近似认为是期望的观看时长，以此做为每个视频的分数,并据此排序。

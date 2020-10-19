@@ -1,0 +1,7 @@
+Action1	"使用任何神经网络框架，对CIFAR-10进行分类
+http://www.cs.toronto.edu/~kriz/cifar.html
+训练集 50000，测试集 10000
+图像大小 32*32 彩色
+10个分类：ariplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck"			"1、完成代码（30points）
+2、使用ResNet, DenseNet或其他网络（20points）
+3、Accuracy >90% （20points）"	

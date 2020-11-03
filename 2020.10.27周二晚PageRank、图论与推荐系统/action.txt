@@ -1,0 +1,9 @@
+Action1	使用Python模拟下面的PageRank计算过程，求每个节点的影响力（迭代100次）	见PPT				"1、转移矩阵是否正确
+2、影响力最终结构是否正确
+3、是否完成了简化模型，随机浏览模型"	
+
+
+			
+Action2	使用TextRank对新闻进行关键词提取，及文章摘要输出	news.txt				"1、正确读取文件 （20points）
+2、使用TextRank工具进行关键词提取，结果正确 （20points）
+3、使用TextRank工具进行重要段落筛选，并形成摘要（20points）"				

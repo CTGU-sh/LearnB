@@ -1,0 +1,27 @@
+Thinking1	什么是Graph Embedding，都有哪些算法模型
+		简要说名Graph Embedding，以及相关算法模型（10points）
+
+
+Thinking2	如何使用Graph Embedding在推荐系统，比如NetFlix 电影推荐，请说明简要的思路
+		简要说明Graph Embedding在NetFlix电影推荐中的作用，有自己的见解（10points）
+
+
+Thinking3	数据探索EDA都有哪些常用的方法和工具
+		简要说明常用的EDA方法和工具（10points）	
+
+Thinking1	从图网络中进行特征提取，将图网络中的点用低维的向量表示，并且这些向量要能反应原有网络的特性，
+		比如原网络中两个点的结构类似，那么这两个点表示的向量也应该类似。
+		主要的算法模型有：
+		factorization methods （图因式分解机）;
+		random walk techniques（随机游走）;
+		deep learning（深度学习）
+
+
+Thinking2	将用户和电影可以构成一个graph模型，把用户在某个时间窗内的连续行为作为一个session，例如一个小时，
+		如果超过时间窗，就划分为不同的session。通常在短周期内看过的电影更具有相似性，根据购买顺序构建有向图；
+		然后通过random walk生成商品的序列，再利用skip-gram算法，生成商品的表示向量；根据skip-gram训练商品的向量；
+		然后就可以用这个模型，推荐一个用户在NetFlix电影可能需要的看的电影！
+
+
+Thinking3	常用的是pandas中的一些函数比如说，info()、describe()、判断缺失值isnull.any()之类的，还有一些numpy函数，比如np.min()
+		np.max()等等，还有一些数据可视化的方法比如matplotlib、seaborns中的直方图、折线图、热力图、饼图等等！

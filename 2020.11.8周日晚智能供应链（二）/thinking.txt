@@ -1,0 +1,25 @@
+Thinking1	常见的规划问题都包括哪些？能简要说明常见的规划问题（10points）
+
+
+Thinking2	常用的规划工具包都有哪些？能简要说明常用的规划工具（10points）
+
+
+Thinking3	RFM模型的原理是怎样的?能简要说明RFM模型的原理（10points）
+
+
+Thinking1	答：
+LP：Linear Programming 线性规划：研究线性约束条件下线性目标函数的极值问题；
+ILP：Integer Linear Programming 整数线性规划：全部决策变量必须为整数；
+MIP：Mixed Integer Programming 混合整数规划：混合整数规划是LP的一种，其中部分的决策变量是整数（不要求全部都是整数）；
+VRP：Vehicle Routing Problem 车辆路径问题。
+
+
+Thinking2	答：规划工具：
+pulp，只用于线性模型，包括如整数规划、01规划，还是混合整数线性规划 MILP
+ortools，Google开发，用于优化的开源软件；可以解决车辆路径、流程、整数和线性规划等问题；提供了C++,Python,Java,.NET接口。
+
+Thinking3	答：
+R：最近一次消费 (Recency)，顾客上一次购买的时间；
+F：消费频率 (Frequency)，顾客在限定的期间内所购买的次数；
+M：消费金额 (Monetary)，顾客消费了多少钱；
+理论上M值和F值是一样的，都带有时间范围，指的是一段时间（通常是1年）内的消费金额。

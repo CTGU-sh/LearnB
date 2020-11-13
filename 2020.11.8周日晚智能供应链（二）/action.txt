@@ -1,0 +1,23 @@
+Action1 智能供应链分析
+数据集：SupplyChainDataset.csv，供应链采购数据
+
+To Do：
+对于欺诈订单进行预测，即Order Status='SUSPECTED_FRAUD'
+对于迟交货订单进行预测，即Delivery Status= 'Late delivery'
+对于销售额进行预测，
+即Sales字段
+对于订货数量进行预测，即Order Item Quantity
+1、对欺诈订单进行预测（10points）
+2、对迟交货订单进行预测（10points）
+3、对销售额进行预测（10points）
+
+4、对订货数量进行预测（10points）
+5、对模型进行可解释性分析（10points）
+
+
+Action2 一个农民承包了6块耕地共300亩，准备播种小麦，玉米，水果和蔬菜四种农产品，已知各种农产品的计划播种面积、每块
+土地种植不同农产品的单产收益
+如何进行合理安排，使得总收益最大
+可以使用pulp/ortools工具
+1、能使用pulp或ortools工具（10points）
+2、结果正确（10points）

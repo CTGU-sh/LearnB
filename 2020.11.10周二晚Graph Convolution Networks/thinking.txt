@@ -1,0 +1,23 @@
+Thinking1	GCN/Graph Embedding 都有哪些应用场景
+		简要说出Graph Embedding的使用场景型（10points）
+
+
+Thinking2	在交通流量预测中，如何使用Graph Embedding，请说明简要的思路
+		简要说明Graph Embedding在交通流量预测的作用，有自己的见解（20points）
+
+
+Thinking3	在文本分类中，如何使用Graph Embedding，请说明简要的思路
+		简要说明Graph Embedding在文本分类中的作用，有自己的见解（20points）
+
+
+Thinking1	答：Graph Embedding有很多的使用场景，因为现实生活中，很多是不规则的数据结构，
+典型的就是图结构，或称拓扑结构，如社交网络、化学分子结构、知识图谱等等，所以Graph Embedding可以
+把这些数据转化成计算机可以处理的数据结构，后续进行各种分析等！
+
+
+Thinking2	答：将城市地铁网络转换成一张图，用立体图卷积运算来无缝地捕捉沿地铁网络的不规则时空依赖关系，
+构造了一个由GCNNs组成的深层结构来捕捉城市层面上的时空依赖关系。最后，我们整合三个时间模式(最近的、每天的和每周的)
+，并融合从这些模式中捕获的时空依赖关系，形成最终的预测值。
+
+
+Thinking3	答：把单词或者词组看做图的节点  然后用GCN分析词之间的关系，然后讲关系较强的文本分成一类！

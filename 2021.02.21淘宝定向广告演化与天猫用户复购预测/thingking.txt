@@ -1,0 +1,36 @@
+Thinking1	电商定向广告和搜索广告有怎样的区别，算法模型是否有差别
+		能简要说明两者的区别（5points）
+能说明算法模型有哪些差别或不同的算法模型（5points）
+		答：定向广告：千人千面，千人十面（类）；
+		    定向广告：用户来淘宝之前自己也没有特别明确的目标；算法模型是算概率，然后决定是否呈现给用户
+		    搜索广告，用户有很明确的意图（主动的Query）；算法是通过搜索要求排序，然后呈现给用户
+
+Thinking2	定向广告都有哪些常见的使用模型，包括Attention机制模型
+		能简要说明常用的模型（10pionts）
+
+		答：LR(人工特征工程+线性)->MLR(分级线性+级联)->DNN（深度学习）->DIN（加上了兴趣捕捉）->DIEN(兴趣演化)->DSIN(兴趣会话)
+
+Thinking3	DIN中的Attention机制思想和原理是怎样的
+		能简要说明Attention思想和原理（10points）
+		答：Attention思想：在pooling的时候，与 candidate Ad 相关的商品权重大一些，与candidate Ad 不相关的商品权重小一些；
+		不对点击序列的Attention分数做归一化，直接将分数与对应商品的embedding向量做加权和，目的在于保留用户的兴趣强度
+
+Thinking4	DIEN相比于DIN有哪些创新
+		能简要说明DIEN的创新之处（10points）
+		答：综合序列随机跳转多，没有规律，噪音大；具体到某个兴趣，存在随时间逐渐演化的趋势。考虑到了兴趣随时间的变化，
+		比如5年前的兴趣和现在的兴趣不一样，考虑到了兴趣随时序的变化。
+
+Thinking5	DSIN关于Session的洞察是怎样的，如何对Session兴趣进行表达
+		能简要说明DSIN关于Session兴趣的表达方式（10points）
+		答：一个session是在给定的时间范围内发生的交互列表（用户行为列表）；
+		会话兴趣抽取层（Session Interest Extractor Layer）：目的是寻找session内部的行为之间关系，进一步提取session interest
+		（使用transformer对Session行为进行处理）对每个Session用multi-head self-attention（多头自注意力）机制捕获行为之间内部关系，减少不相关行为的影响；
+		会话兴趣交互层（Session Interest Interacting Layer）：将会话兴趣抽取层的输出作为该层的输入，用Bi-LSTM模拟不同会话的兴趣动态改变；
+		会话兴趣激活层（Session Interest Activating Layer）：用户的Session兴趣与目标物品越相近，那么应该赋予更大的权重，使用注意力机制
+
+
+Thinking6	如果你来设计淘宝定向广告，会有哪些future work（即下一个阶段的idea）
+		给出你的想法（5points）
+想法具有创新性（5points）
+		答：我觉得会根据用户的消费额度和消费频率归类，用相同消费水平和消费频率的买家归位一类，同理把卖家也做这样的归类。这样推荐的时候可以让他们组团。
+		然后有共同购买意向的可以拼团（拼XX）。

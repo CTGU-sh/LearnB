@@ -1,0 +1,53 @@
+Thinking1	常用的路径规划算法有哪些?
+		简要说出常用的路径规划算法（10points）
+Thinking1	Djkstra:通过集合的方式，每一步把最近的距离的那个元素往已经计算的集合中放，中间有比较距离大小，选择最小的往进挪，直到最后即为所求；
+		Floyd:通过邻接矩阵的方式，遍历矩阵中的元素距离，通过打擂法的方式得到最小值；
+		A*：从起点开始，首先遍历起点周围邻近的点，然后再遍历已经遍历过的点邻近的点，逐步的向外扩散，直到找到终点。
+
+Thinking2	推荐系统的架构是怎样的？
+		简要说明推荐系统的架构（10points）		
+
+Thinking3	你都了解推荐系统中的哪些常用算法？原理是怎样的？
+		简要说明常用的推荐系统算法及原理（10points）
+		常用的推荐算法有一下：
+		基于标签推荐： SimpleTagBased， NormTagBased， TagBased-TFIDF
+		基于内容的推荐
+		基于协同过滤： 
+			User-CF, Item-CF：
+			UserCF: 推荐和当前用户相似度高的N个用户产生过行为的物品给当前用户
+			ItemCF: 推荐和当前用户历史上行为过的物品相似的物品给当前用户(可解释性强)
+		CTR预估GBDT+LR, Wide & Deep, FM, FFM, DeepFM, NFM,  DIN,DIEN, DSIN，Deep & Cross, xDeepFM,
+			GBDT+LR：具有stacking思想的二分类器模型， 用来解决二分类问题 通过GBDT将特征迚行组合， 然后传入给线性分类器
+				 LR对GBDT产生的输入数据迚行分类（ 使用L1正则化防止过拟合）
+			Wide & Deep：
+				Wide推荐：系统通过获得用户的购物日志数据， 包括用户点击哪些商品， 购买过哪些商品， 然后通过OneHot编码转换为离散特征
+				好处是可解释性强， 丌趍在于特征组合需要人为操作
+				Deep推荐:通过深度学习出一些向量， 这些向量是隐性特征，往往没有可解释性的
+				两个模型融合的方法：ensemble： 两个模型分别对全量数据迚行预测， 然后根据权重组合最终的预测结果
+				joint training ： wide和deep的特征合一， 构成一个模型预测
+			FM：FM矩阵将User和Item都进行了one-hot编码作为特征，使得特征维度非常巨大且稀疏;
+			    矩阵分解MF是FM的特例，即特征只有User ID 和Item ID的FM模型
+			    矩阵分解MF只适用于评分预测，进行简单的特征计算，无法利用其他特征
+			    FM引入了更多辅助信息（Side information） 作为特征
+			FFM：FM每个特征只有一个隐向量,FM是FFM的特例;FFM,每个特征有多个隐向量,使用哪个，取决于和哪个向量进行点乘
+			DeepFM：FM可以做特征组合， 但是计算量大， 一般只考虑2阶特征组合; 如何既考虑低阶（1阶+2阶），又能考虑到高阶特征=>DeepFM=FM+DNN
+			NFM：NFM算法是对embedding直接采用对位相乘（element-wise）后相加起来作为交叉特征，然后通过DNN直接将特征压缩，
+			     最后concatenate linear部分和deep部分的特征。
+			     两种FM和DNN的结合方式：DeepFM, 幵行结构， FM和DNN分开计算 NFM,串行架构，将FM的结果作为DNN的输入
+			DIN,DIEN, DSIN:
+				DIN:基于用户历史行为的数据洞察 => Diversity 和 Local Activation 主要思想是在对用户兴趣的表示上引入了attention机制，即
+				    对用户的每个兴趣表示赋予不同的权值，这个权值是由用户的兴趣和待估算的广告进行匹配计算得到的 DIN模型在工程上进行了改进，
+                                    Dice激活函数， 自适应正则，以及改进的AUC评价指标， 为模型效果和评估带来了提升
+				DIEN:DIEN和DIN最底层都有Embedding Layer，User profile，target AD和context feature，处理方式一样 
+				    Interest Extractor Layer从embedding数据中提取出interest。但用户在某一时间的interest不仅与当前
+                                    的behavior有关，也与之前的behavior相关，所以使用GRU单元来提取interest。 Interest Extractor Layer，
+                                    通过辅助loss，提升兴趣表达的准确性；Interest Evolution Layer，更准确的表达用户兴趣的动态变化性，
+				    在GRU基础上增加Attention机制，找到与target AD相关的interest。 DIN中简单的使用外积完成的activation unit 
+				    => 使用attentionbased GRU网络，更好的挖掘序列数据中的兴趣及演化
+				DSIN:将用户的连续行为自然地划分为Session， 通过带有偏置编码的self attention网络对每个会话进行建模? 
+				     使用BI-LSTM捕捉用户不同历史会话兴趣的交互和演变。 设计了两个Activation Unit，将它们与目标item
+				     聚合起来，形成行为序列的最终表示形式
+			（Deep & Cross、xDeepFM老师好像没有讲）
+
+Thinking4	我们在课上讲解过常用的机器学习，深度学习模型，推荐系统算法，以及启发式算法，路径规划原理等，
+		针对这些模块，请你针对其中一个进行思维导图梳理	能对课上讲过的某一模块进行思维导图梳理（20points）
